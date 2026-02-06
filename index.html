@@ -957,17 +957,85 @@
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-utensils"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Web Development Projects</h3>
-                        <span class="project-date">Completed in 6 months</span>
-                        <p>Completed 5 web projects using HTML, CSS, and JavaScript within a 6-month period, demonstrating consistent learning and application of front-end development skills.</p>
+                        <h3>Restaurant Website</h3>
+                        <span class="project-date">09/2025 - Biratnagar, Nepal</span>
+                        <p>A fully responsive restaurant website with online menu, table booking system, and food ordering functionality. Features include image gallery, customer reviews, and contact form.</p>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Frontend</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Video Editing Portfolio</h3>
+                        <span class="project-date">07/2025 - Biratnagar, Nepal</span>
+                        <p>A showcase website for video editing projects with embedded video player, project galleries, and client testimonials. Includes before/after comparisons and service pricing.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Video Editing</span>
+                            <span class="tech-tag">Adobe Premiere</span>
+                            <span class="tech-tag">After Effects</span>
+                            <span class="tech-tag">Web Integration</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Product Page</h3>
+                        <span class="project-date">10/2025 - Biratnagar, Nepal</span>
+                        <p>Interactive e-commerce product page with product image gallery, size/color selection, quantity selector, add to cart functionality, and customer review system.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <span class="project-date">06/2025 - Biratnagar, Nepal</span>
+                        <p>A web-based task management application with drag-and-drop functionality, priority settings, due dates, and progress tracking. Features local storage for data persistence.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Local Storage</span>
+                            <span class="tech-tag">CRUD Operations</span>
+                            <span class="tech-tag">UI/UX Design</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-blog"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tech Blog Platform</h3>
+                        <span class="project-date">05/2025 - Biratnagar, Nepal</span>
+                        <p>A responsive blog platform focused on technology topics. Includes categories, tags, search functionality, comment system, and social media sharing buttons.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Blog Design</span>
+                            <span class="tech-tag">SEO</span>
+                            <span class="tech-tag">Responsive Layout</span>
+                            <span class="tech-tag">Content Management</span>
                         </div>
                     </div>
                 </div>
@@ -985,6 +1053,23 @@
                             <span class="tech-tag">Analytics</span>
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">Performance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Web Development Projects</h3>
+                        <span class="project-date">Completed in 6 months</span>
+                        <p>Completed 5 web projects using HTML, CSS, and JavaScript within a 6-month period, demonstrating consistent learning and application of front-end development skills.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Frontend</span>
                         </div>
                     </div>
                 </div>
@@ -1167,7 +1252,6 @@
                                 <h4>GitHub</h4>
                                 <p><a href="https://github.com/parmanandy12" target="_blank">github.com/parmanandy12</a></p>
                             </div>
-                             
                         </div>
                     </div>
                     
@@ -1298,6 +1382,29 @@
                 // Optionally add tracking or analytics here
                 console.log('Email link clicked:', this.href);
             });
+        });
+        
+        // Add animation to project cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
         });
     </script>
 </body>
